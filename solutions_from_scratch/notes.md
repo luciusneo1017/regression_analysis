@@ -7,6 +7,12 @@ Gradient descent
 
 - Perfect multicollinearity prevents $(X^T X)^{-1}$ from being invertible
 
+## Gradient Desc.
+- If X has perfect multicollinearity, the MSE surface has a flat direction
+    - Perfect multicollinearity -> MSE surface has a zero curvature direction
+    - Even though there might be infinitely many b_hat vector that minimises MSE, all b_hat vectors give the same fitted solution vector y_hat = X B_hat
+- If X is full rank, there is positive curvature of the MSE surface in every coefficient direction, so there is one bottom (global minima)
+
 
 
 ## General Notes
