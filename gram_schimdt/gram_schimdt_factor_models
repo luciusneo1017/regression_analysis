@@ -1,13 +1,3 @@
-now what does gram schimdt mean for factor models
+# explanation of gram-schidmt algo
 
-suppose we assume returns, r are modelled via a linear model
-r = a + b1* rf_1 + b2 * rf_2 + err
-
-we estimate b1 and b2
-
-r = a + b1_hat * rf_1 + b2_hat * rf_2 + eps
-
-if a , b1 and b2 are perfectly orthogonal, then r can just be the sum of the direct orthogonals 
-
-however if there is so multicollinearity in a, b1 and b2, then gram schidmt orthogonalises a b1 and b2 into a new orthognal basis
-but what does this orthogonal basis mean economically? what is their economic intepretation?
+# economic intepreation and relation to factor models
