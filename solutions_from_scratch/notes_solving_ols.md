@@ -4,8 +4,8 @@ Gradient descent
 
 ## Normal eqn
 - Design matrix is a transformed predictor matrix
-
 - Perfect multicollinearity prevents $(X^T X)^{-1}$ from being invertible
+
 
 ## Gradient Desc.
 - If X has perfect multicollinearity, the MSE surface has a flat direction
