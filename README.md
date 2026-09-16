@@ -27,4 +27,8 @@ Folder where I explore the Gram-Schimdt orthogonalisation algorithm to deepen my
 
 Folder to reseach the issue of multicollinearity and how it affects the solution
 
-TODO: Research between degree of multicollinearity present in X and variance of $\hat{\beta}$
+TODO: Investigate the relationship between the degree of multicollinearity present in X and variance of $\hat{\beta}$. 
+
+- geometric perspective (successive orthogonalization)
+- simulation $VIF_j$ -> $\mathrm{Var}(\hat{\beta}_j)$
+
