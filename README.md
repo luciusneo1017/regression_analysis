@@ -11,11 +11,11 @@ Solutions done from scratch to better understand underlying theory
 - Normal Equations
 - Gradient Descent
 - Stochastic Gradient Descent (TODO)
-- Gram-Schimdt (TODO)
+- Gram-Schidt (TODO)
 - QR Decomposition (TODO)
 
-## Gram-Schimt (Successive Orthogonalization)
-[`gram_schimdt/`](./gram_schimdt/)
+## Gram-Schmidt (Successive Orthogonalization)
+[`gram_schmidt/`](./gram_schmidt/)
 
 Folder where I explore the Gram-Schimdt orthogonalisation algorithm to deepen my understanding of the geometric intepretation of OLS.
 
