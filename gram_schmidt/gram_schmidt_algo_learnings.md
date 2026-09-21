@@ -27,26 +27,26 @@ $$
 
 We then project our second column vector $x_2$ on our first orthogonal basis vector $z_1$. This projected vector $\operatorname{proj}_{z_1}(x_2)$ is given by 
 $$
-\operatorname{proj}_{z_1}(x_2) = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1
+proj_{z_1}x_2 = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1
 $$
 
-Lets also define the vector orthogonal to the $\operatorname{proj}_{z_1}(x_2)$ as $z_2$.
+Lets also define the vector orthogonal to the $proj_{z_1}x_2$ as $z_2$.
 Since 
 $$
-\operatorname{proj}_{z_1}(x_2) + z_2 = z_1
+proj_{z_1}x_2 + z_2 = z_1
 $$
 $$
-z_2 = z_1 - \operatorname{proj}_{z_1}(x_2) 
+z_2 = z_1 - proj_{z_1}x_2 
 $$
 
 By construction, $z_1$ and $z_2$ are orthogonal. To construct our OLS equation with our new orthogonal basis, we project our target vector $y$ onto each of our new orthogonal basis vectors $z_1$ and $z_2$.
 
 $$
-\operatorname{proj}_{z_1}(y) = \frac{z_1 \cdot y}{z_1 \cdot z1} z_1
+proj_{z_1}y = \frac{z_1 \cdot y}{z_1 \cdot z1} z_1
 $$
 
 $$
-\operatorname{proj}_{z_2}(y) = \frac{z_2 \cdot y}{z_2 \cdot z2} z_2
+proj_{z_2}y = \frac{z_2 \cdot y}{z_2 \cdot z2} z_2
 $$
 
 Here we define 
@@ -56,13 +56,13 @@ $
 as $\hat{\alpha_1}$ and
 $
 \frac{z_2 \cdot y}{z_2 \cdot z2}
-$ as $\\hat{alpha_2}$, where both $\hat{\alpha_1}$ and $\hat{\alpha_2}$ are scalars.
+$ as $\\hat{alpha_2}$, where both $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are scalars.
 (Although I do know the ESL textbook defines them as $\beta_1$ and $\beta_2$ but I want to contrast these coefficients from the regular OLS coefficients later.)
 
-Just like how a vector in space can be broken down into its resulting sum of two of its orthogonal vectors, we can sum up both our projection vectors on their respective orthogonal basis to yield $\hat{y}$ . This is because both $\operatorname{proj}_{z_1}(y)$ and $\operatorname{proj}_{z_2}(y)$ are orthogonal to each other.
+Just like how a vector in space can be broken down into its resulting sum of two of its orthogonal vectors, we can sum up both our projection vectors on their respective orthogonal basis to yield $\hat{y}$ . This is because both $proj_{z_1}y$ and $proj_{z_2}y$ are orthogonal to each other.
 
 $$
-\hat{y} = \operatorname{proj}_{z_1} + \operatorname{proj}_{z_2}(y) = \frac{z_1 \cdot y}{z_1 \cdot z1} z_1 + \frac{z_2 \cdot y}{z_2 \cdot z2} z_2 = \alpha_1 z_1 + \alpha_2 z_2
+\hat{y} = proj_{z_1}y + proj_{z_2}y = \frac{z_1 \cdot y}{z_1 \cdot z1} z_1 + \frac{z_2 \cdot y}{z_2 \cdot z2} z_2 = \alpha_1 z_1 + \alpha_2 z_2
 $$
 
 The equation
@@ -77,9 +77,9 @@ when put side-by-side.
 
 The difference in both equations is that our feature columns vectors have changed. Thus the projection of y onto our column vectors have changed as well. This means both equations have to be interpeted differently.
 
-Here $x_1$ and $x_2$ are our original column vectors while $z_1$ and $z_2$ are our new orthogonal basis vectors. The scalars $\hat{\alpha_j}$ scale their respective $z_j$'s to form the projection of $y$ onto these orthogonal directions. The sum of these projection vectors gives the point in $\operatorname{span}(z_1,z_2)$ that is closest to $y$. By construction, $z_1$ and $z_2$ are themselves mutually orthogonal.
+Here $x_1$ and $x_2$ are our original column vectors while $z_1$ and $z_2$ are our new orthogonal basis vectors. The scalars $\hat{\alpha_j}$ scale their respective $z_j$'s to form the projection of $y$ onto these orthogonal directions. The sum of these projection vectors gives the point in $span(z_1,z_2)$ that is closest to $y$. By construction, $z_1$ and $z_2$ are themselves mutually orthogonal.
 
-Similarly the scalars $\hat{\beta}_j$ scale their respective column vectors $x_j$'s to form the fitted vector $\hat{y}$. When the $x_j$'s are mutually orthogonal, each term $\hat{\beta}_j x_j$ can also be intepreted as the individual projection of $y$ onto the direction $x_j$, and these projection vectors can be summed to obtained the projection of $y$ onto $\operatorname{span}(x_1,x_2)$. However, when the $x_j$'s are not orthogonal, the coefficients $\hat{\beta}_j$ must be determined jointly, and the individual projections of $y$ onto each $x_j$ cannot simply be added to obtain the projection of $y$ onto the $\operatorname{span}(x_1,x_2)$.
+Similarly the scalars $\hat{\beta}_j$ scale their respective column vectors $x_j$'s to form the fitted vector $\hat{y}$. When the $x_j$'s are mutually orthogonal, each term $\hat{\beta}_j x_j$ can also be intepreted as the individual projection of $y$ onto the direction $x_j$, and these projection vectors can be summed to obtained the projection of $y$ onto $span(x_1,x_2)$. However, when the $x_j$'s are not orthogonal, the coefficients $\hat{\beta}_j$ must be determined jointly, and the individual projections of $y$ onto each $x_j$ cannot simply be added to obtain the projection of $y$ onto the $span(x_1,x_2)$.
 
 Key: The projection vector $\hat{y}$ onto a span (span($x_j$'s) or span($z_j$'s)) is not generally equal to the sum of the $y$ projections onto the spanning vectors unless those vectors are orthogonal.
 
