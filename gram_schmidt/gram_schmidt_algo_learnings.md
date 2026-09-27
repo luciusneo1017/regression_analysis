@@ -21,20 +21,24 @@ $$
 
 In Gram-Schimdt, we are trying to find a new orthogonal basis for our column space.
 Lets set the first column vector as the direction of our first orthogonal basis, and lets call this $z_1$.
+
 $$
 z_1 = x_1
 $$
 
 We then project our second column vector $x_2$ on our first orthogonal basis vector $z_1$. This projected vector $\operatorname{proj}_{z_1}(x_2)$ is given by 
+
 $$
 proj_{z_1}x_2 = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1
 $$
 
 Lets also define the vector orthogonal to the $proj_{z_1}x_2$ as $z_2$.
 Since 
+
 $$
 proj_{z_1}x_2 + z_2 = z_1
 $$
+
 $$
 z_2 = z_1 - proj_{z_1}x_2 
 $$
@@ -49,13 +53,8 @@ $$
 proj_{z_2}y = \frac{z_2 \cdot y}{z_2 \cdot z2} z_2
 $$
 
-Here we define 
-$
-\frac{z_1 \cdot y}{z_1 \cdot z1}
-$
-as $\hat{\alpha_1}$ and
-$
-\frac{z_2 \cdot y}{z_2 \cdot z2}
+Here we define $ \frac{z_1 \cdot y}{z_1 \cdot z1} $ as $\hat{\alpha_1}$ and
+$\frac{z_2 \cdot y}{z_2 \cdot z2}
 $ as $\\hat{alpha_2}$, where both $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are scalars.
 (Although I do know the ESL textbook defines them as $\beta_1$ and $\beta_2$ but I want to contrast these coefficients from the regular OLS coefficients later.)
 
@@ -66,13 +65,17 @@ $$
 $$
 
 The equation
+
 $$
 \hat{y} = \hat{\alpha_1} z_1 + \hat{\alpha_2} z_2
-$$ looks
-similar to the regular OLS equation
+$$ 
+
+looks similar to the regular OLS equation
+
 $$
 \hat{y} = \hat{\beta_1} x_1 + \hat{\beta_2} x_2
 $$
+
 when put side-by-side.
 
 The difference in both equations is that our feature columns vectors have changed. Thus the projection of y onto our column vectors have changed as well. This means both equations have to be interpeted differently.
@@ -119,23 +122,31 @@ proj_{z_1}{x_2} = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1
 $$
 
 Geometrically, we have
+
 $$
 proj_{z_1}{x_2} + z_2 = x_2
 $$
 
 To isolate our second orthogonal basis vector, we have:
+
 $$
 z_2 = x_2 - proj_{z_1}{x_2} 
 $$
+
 But since our original feature column vectors are perfectly orthogonal to each other,
+
 $$
 x_1 \cdot x_2 = 0
 $$
+
 and since $z_1$ = $x_1$,
+
 $$
 proj_{z_1}{x_2} = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1 = \frac{x_1 \cdot x_2}{z_1 \cdot z1} z_1 = \frac{0}{z_1 \cdot z1} z_1 = 0
 $$
+
 Thus,
+
 $$
 z_2 = x_2 - proj_{z_1}{x_2} = x_2 - 0 = x_2
 $$
@@ -170,6 +181,7 @@ $$
 
 ## When we include the intercept in our linear equation
 If we include the intercept in our linear equation, we set the first feature column vector as the vector of ones, that is,
+
 $$
 x_0 = \mathbf{1} = \begin{bmatrix} 
 1 \\
