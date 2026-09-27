@@ -104,15 +104,88 @@ In this example, we set $z_1 = x_1$ so both $z_1$ and $x_1$ represent the same f
 
 As the coefficients $\hat{\alpha}_j$'s depend on the particular basis used to represent the column space, their interpretation differs from that of the original regression coefficients $\hat{\beta}_j$'s.
 
-Geometrically, $\hat{\alpha}_j$ scales the orthogonalized basis vector $z_j$, while $\hat{\beta}_j$ scaled the orginal feature vector $x_j$.
+Geometrically, $\hat{\alpha}_j$ scales the orthogonalized basis vector $z_j$, while $\hat{\beta}_j$ scales the orginal feature vector $x_j$.
 
-In an applied regression context,
-
+In an applied regression context, $\hat{\beta}_j$ represents the change in the fitted value $\hat{y}$ associated with a one-unit change in our orginal $x_j$ feature vector, while keeping all other feature vectors constant. In contrast, $\hat{\alpha}_j$ represents the change in $\hat{y}$ associated with a one-unit change in our residualized feature vector $z_j$ while keeping all other residualised features constant.
 
 
 ## When our column vectors are already orthogonal to each other
+When our column vectors are already perfectly orthogonal to each other, our new orthogonal basis is unchanged from our original basis.
+
+To see this, let our first new orthogonal basis, $z_1$ = $x_1$, as per the Gram-Schmidt algorithm. We then project our second original feature column vector onto our first orthogonal basis to isolate our second orthogonal basis vector.
+
+$$
+proj_{z_1}{x_2} = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1
+$$
+
+Geometrically, we have
+$$
+proj_{z_1}{x_2} + z_2 = x_2
+$$
+
+To isolate our second orthogonal basis vector, we have:
+$$
+z_2 = x_2 - proj_{z_1}{x_2} 
+$$
+But since our original feature column vectors are perfectly orthogonal to each other,
+$$
+x_1 \cdot x_2 = 0
+$$
+and since $z_1$ = $x_1$,
+$$
+proj_{z_1}{x_2} = \frac{z_1 \cdot x_2}{z_1 \cdot z1} z_1 = \frac{x_1 \cdot x_2}{z_1 \cdot z1} z_1 = \frac{0}{z_1 \cdot z1} z_1 = 0
+$$
+Thus,
+$$
+z_2 = x_2 - proj_{z_1}{x_2} = x_2 - 0 = x_2
+$$
+
+Our new orthogonal basis is the same as our original basis from our feature columns.
+
+Just as the fitted vector $\hat{y}$ can be written as the sum of product of the original feature vectors scaled by their respective coefficients $\hat{\beta}_j$,
+
+$$
+\hat{y} = \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2
+$$
+
+if the original feature vectors $x_1$ and $x_2$ and already orthogonal, Gram-Schmidt leaves them unchanged:
+
+$$
+z_1 = x_1, \qquad z_2 = x_2.
+$$
+
+Hence the fitted vector can equivalently be written as 
+
+$$
+\hat{y} = \hat{\alpha}_1 z_1 + \hat{\alpha}_2 z_2
+$$
+
+Since the two basis (our new orthogonal basis from Gram-Schmidt and our original feature vector basis) are identical in this case, the corresponding coefficients are also identical:
+
+$$ 
+\hat{\alpha}_1 = \hat{\beta}_1, \qquad
+\hat{\alpha}_2 = \hat{\beta}_2
+$$
+
 
 ## When we include the intercept in our linear equation
+If we include the intercept in our linear equation, we set the first feature column vector as the vector of ones, that is,
+$$
+x_0 = \mathbf{1} = \begin{bmatrix} 
+1 \\
+1 \\
+\vdots \\
+1
+\end{bmatrix}
+,
+x_0 \in \mathbb{R}^n
+$$
+
+The successive orthogonalization algorithm is done with the first vector as the vector of ones. The rest of the steps are the same.
 
 
-* ESL refers to the Elements of Statistical Learning textbook
+##
+
+\*ESL refers to The Elements of Statistical Learning textbook
+
+
