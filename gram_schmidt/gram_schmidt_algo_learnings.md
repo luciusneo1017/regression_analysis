@@ -53,31 +53,9 @@ $$
 proj_{z_2}y = \frac{z_2 \cdot y}{z_2 \cdot z2} z_2
 $$
 
-Here we define 
+Here we define $\frac{z_1 \cdot y}{z_1 \cdot z1}$ as $\hat{\alpha_1}$ and $\frac{z_2 \cdot y}{z_2 \cdot z2}$ as $\\hat{alpha_2}$ , where both $\hat{\alpha}_1$ and 
+$\hat{\alpha}_2$ are scalars.
 
-$\frac{z_1 \cdot y}{z_1 \cdot z1}$
-
-as 
-
-$\hat{\alpha_1}$
-
-and
-
-$\frac{z_2 \cdot y}{z_2 \cdot z2}$
-
-as 
-
-$\\hat{alpha_2}$
-
-, where both 
-
-$\hat{\alpha}_1$
-
-and 
-
-$\hat{\alpha}_2$ 
-
-are scalars.
 (Although I do know the ESL textbook defines them as $\beta_1$ and $\beta_2$ but I want to contrast these coefficients from the regular OLS coefficients later.)
 
 Just like how a vector in space can be broken down into its resulting sum of two of its orthogonal vectors, we can sum up both our projection vectors on their respective orthogonal basis to yield $\hat{y}$ . This is because both $proj_{z_1}y$ and $proj_{z_2}y$ are orthogonal to each other.
